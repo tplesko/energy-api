@@ -15,7 +15,7 @@ model = joblib.load("optimized_rf.pkl")
 def predict():
     try:
         data = request.get_json()
-        features = np.array(data["features"]).reshape(1, -1)
+        features = np.array(data["data"]).reshape(1, -1)
         prediction = model.predict(features).tolist()
         return jsonify({"prediction": prediction})
     except Exception as e:
