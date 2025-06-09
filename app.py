@@ -2,8 +2,12 @@ from flask import Flask, request, jsonify
 import joblib
 import numpy as np
 import os
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})  # dopušta sa svih domen
 
 model = joblib.load("optimized_rf.pkl")
 
