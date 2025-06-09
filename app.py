@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-model = joblib.load("model/optimized_rf.pkl")
+model = joblib.load("optimized_rf.pkl")
 
 @app.route("/predict", methods=["POST"])
 def predict():
